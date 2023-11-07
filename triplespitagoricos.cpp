@@ -1,4 +1,4 @@
-#include <stdio.h>
+#include <cstdio>
 
 int esTriplePitagorico(int a, int b, int c) {
     return (a * a + b * b == c * c);
@@ -9,25 +9,39 @@ int esTriangulo(int a, int b, int c) {
 }
 
 int main() {
-    int a, b, c;
+    int valores[3];
 
-    printf("Ingrese el valor de a: ");
-    scanf("%d", &a);
-    printf("Ingrese el valor de b: ");
-    scanf("%d", &b);
-    printf("Ingrese el valor de c: ");
-    scanf("%d", &c);
+    for (int i = 0; i < 3; i++) {
+        printf("Ingrese el valor del lado %d: ", i + 1);
+        scanf("%d", &valores[i]);
+    }
 
-    if (esTriplePitagorico(a, b, c)) {
-        if (esTriangulo(a, b, c)) {
-            printf("(%d, %d, %d) es un triple pitagórico y forma un triángulo válido.\n", a, b, c);
+    int es_pitagorico = 0;
+    int es_valido = 0;
+
+    for (int i = 0; i < 3; i++) {
+        int a = valores[i];
+        int b = valores[(i + 1) % 3];
+        int c = valores[(i + 2) % 3];
+
+        if (esTriplePitagorico(a, b, c)) {
+            es_pitagorico = 1;
+            if (esTriangulo(a, b, c)) {
+                es_valido = 1;
+                break;
+            }
+        }
+    }
+
+    if (es_pitagorico) {
+        if (es_valido) {
+            printf("Es un triple pitagórico y forma un triángulo válido.\n");
         } else {
-            printf("(%d, %d, %d) es un triple pitagórico, pero no forma un triángulo válido.\n", a, b, c);
+            printf("Es un triple pitagórico, pero no forma triángulo.\n");
         }
     } else {
-        printf("(%d, %d, %d) no es un triple pitagórico y/o no forma un triángulo válido.\n", a, b, c);
+        printf("No es un triple pitagórico y no forma un triángulo válido.\n");
     }
 
     return 0;
 }
-
