@@ -20,9 +20,7 @@ int main() {
     int a = valores[0];
     int b = valores[1];
 
-    // Calcular ambos valores de c (positivo y negativo)
-    double c_positivo = sqrt(a * a + b * b);
-    double c_negativo = -sqrt(a * a + b * b);
+    double c = -sqrt(a * a + b * b);
 
     printf("El tercer lado (positivo) es: %.2lf\n", c_positivo);
     printf("El tercer lado (negativo) es: %.2lf\n", c_negativo);
