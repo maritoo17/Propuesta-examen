@@ -19,9 +19,14 @@ int main() {
     scanf("%d", &c);
 
     if (esTriplePitagorico(a, b, c)) {
-        printf("(%d, %d, %d) es un triple pitagórico y forma un triángulo válido.\n", a, b, c);
+        printf("(%d, %d, %d) es un triple pitagórico .\n", a, b, c);
     } else {
         printf("(%d, %d, %d) no es un triple pitagórico.\n", a, b, c);
+        if (esTriangulo(a, b, c)) {
+            printf("(%d, %d, %d) es un triángulo.\n", a, b, c);
+        } else {
+            printf("(%d, %d, %d) no es un triángulo.\n", a, b, c);
+        }
     }
 
     return 0;
