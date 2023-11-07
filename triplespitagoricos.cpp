@@ -4,6 +4,10 @@ int esTriplePitagorico(int a, int b, int c) {
     return (a * a + b * b == c * c);
 }
 
+int esTriangulo(int a, int b, int c) {
+    return (a + b > c && a + c > b && b + c > a);
+}
+
 int main() {
     int a, b, c;
 
