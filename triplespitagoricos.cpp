@@ -1,19 +1,23 @@
 #include <stdio.h>
-#include <math.h>
+
+int esTriplePitagorico(int a, int b, int c) {
+    return (a * a + b * b == c * c);
+}
 
 int main() {
-    int n;
-    printf("Ingrese un número entero n: ");
-    scanf("%d", &n);
+    int a, b, c;
 
-    printf("Triples Pitagóricos:\n");
-    for (int a = 1; a <= n; a++) {
-        for (int b = a; b <= n; b++) {
-            int c = sqrt(a * a + b * b);
-            if (c <= n && c * c == a * a + b * b) {
-                printf("(%d, %d, %d)\n", a, b, c);
-            }
-        }
+    printf("Ingrese el valor de a: ");
+    scanf("%d", &a);
+    printf("Ingrese el valor de b: ");
+    scanf("%d", &b);
+    printf("Ingrese el valor de c: ");
+    scanf("%d", &c);
+
+    if (esTriplePitagorico(a, b, c)) {
+        printf("(%d, %d, %d) es un triple pitagórico.\n", a, b, c);
+    } else {
+        printf("(%d, %d, %d) no es un triple pitagórico.\n", a, b, c);
     }
 
     return 0;
