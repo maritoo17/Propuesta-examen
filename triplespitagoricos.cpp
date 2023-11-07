@@ -19,12 +19,16 @@ int main() {
 
     int a = valores[0];
     int b = valores[1];
-    double c = sqrt(a * a + b * b);
 
-    printf("El tercer lado es: %.2lf\n", c);
+    // Calcular ambos valores de c (positivo y negativo)
+    double c_positivo = sqrt(a * a + b * b);
+    double c_negativo = -sqrt(a * a + b * b);
 
-    if (esTriangulo(a, b, c)) {
-        if (esTriplePitagorico(a, b, c)) {
+    printf("El tercer lado (positivo) es: %.2lf\n", c_positivo);
+    printf("El tercer lado (negativo) es: %.2lf\n", c_negativo);
+
+    if (esTriangulo(a, b, c_positivo) || esTriangulo(a, b, c_negativo)) {
+        if (esTriplePitagorico(a, b, c_positivo) || esTriplePitagorico(a, b, c_negativo)) {
             printf("Es un triángulo pitagórico y forma un triángulo válido.\n");
         } else {
             printf("Es un triángulo válido, pero no es un triángulo pitagórico.\n");
@@ -35,3 +39,6 @@ int main() {
 
     return 0;
 }
+
+
+
